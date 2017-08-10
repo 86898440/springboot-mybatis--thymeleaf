@@ -4,13 +4,19 @@
 
     <resultMap id="userMap" type="com.yungo.entity.User">
         <id property="id" column="id"></id>
-        <result property="username" column="username"></result>
+        <result property="nickname" column="username"></result>
         <result property="password" column="password"></result>
         <result property="phone" column="phone"></result>
+        <result property="roles" column="roles"></result>
     </resultMap>
 
-    <select id="findByUsername" parameterType="java.lang.String" resultMap="userMap">
-        SELECT *FROM user WHERE username=#{username}
+
+    <select id="findByPhone" parameterType="java.lang.Long" resultMap="userMap">
+        SELECT *FROM user WHERE phone=#{phone}
     </select>
+
+    <insert id="create" >
+        INSERT INTO user(username,password,phone) VALUE(#{nickname},#{password},#{phone})
+    </insert>
 
 </mapper>

@@ -1,6 +1,7 @@
 package com.yungo.dao;
 
 import com.yungo.entity.User;
+import com.yungo.hideMapper.MyMapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -14,18 +15,23 @@ import org.apache.ibatis.annotations.Update;
  * Created by cx on 17-8-3.
  */
 
-public interface UserDao {
+public interface UserDao extends MyMapper{
 
 /*    public User findByUsername(@Param("username") String Username);*/
 
-        @Select("SELECT * FROM user WHERE username = #{username}")
+     /*   @Select("SELECT * FROM user WHERE username = #{username}")
         @Results({
                 @Result(property = "id", column = "id"),
                 @Result(property = "username", column = "username"),
                 @Result(property = "phone" ,column = "phone"),
                 @Result(property = "username" ,column = "username")
-        })
-        User findByUsername(@Param("username") String username);
+        })*/
+
+
+        int create(@Param("nickname") String nickname,@Param("password")String password,@Param("phone")long phone);
+
+    User findByPhone(@Param("phone") Long phone);
+
        /* @Select("SELECT * FROM users WHERE id = #{id}")
         @Results({
                 @Result(property = "userSex", column = "user_sex", javaType = UserSexEnum.class),

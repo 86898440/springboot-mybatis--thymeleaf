@@ -43,11 +43,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.30</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-        </dependency>
+        </dependency>-->
 
         <!-- 分页插件 -->
         <dependency>
@@ -94,15 +94,125 @@
             <classifier>sources</classifier>
         </dependency>
 
+        <!--热部署-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--由于使用thymeleaf的HTML5标签比较严格，使用ekohtml解析-->
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.22</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+        <!-- 添加redis支持-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>1.8.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <!--httpclient-->
+       <dependency>
+            <groupId>org.kie.modules</groupId>
+            <artifactId>org-apache-commons-httpclient</artifactId>
+            <version>6.2.0.CR2</version>
+            <type>pom</type>
+        </dependency>
+        <!--fastjson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.9</version>
+        </dependency>
+
+<!--...........-->
+
+        <!--
+        <dependency>
+
+            <groupId>javax.servlet</groupId>
+
+            <artifactId>javax.servlet-api</artifactId>
+
+            <scope>provided</scope>
+
+        </dependency>
+
+        <dependency>
+
+            <groupId>javax.servlet</groupId>
+
+            <artifactId>jstl</artifactId>
+
+        </dependency>
+        &lt;!&ndash; tomcat的支持.&ndash;&gt;
+
+        <dependency>
+
+            <groupId>org.springframework.boot</groupId>
+
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+
+            <scope>provided</scope>
+
+        </dependency>
+
+        <dependency>
+
+            <groupId>org.apache.tomcat.embed</groupId>
+
+            <artifactId>tomcat-embed-jasper</artifactId>
+
+            <scope>provided</scope>
+
+        </dependency>
+-->
+
 
     </dependencies>
-  <build>
+    <!--<build>
+          <plugins>
+              <plugin>
+                  <groupId>org.springframework.boot</groupId>
+                  <artifactId>spring-boot-maven-plugin</artifactId>
+              </plugin>
+          </plugins>
+      </build>-->
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
             </plugin>
         </plugins>
     </build>
 
 </project>
+
+
+

@@ -1,13 +1,37 @@
 package com.yungo.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by cx on 17-8-3.
  */
-public class User {
+
+public class User implements Serializable {
     Integer id;
-    String username;
+    String nickname;
     String password;
     long phone;
+    String roles;
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + nickname + '\'' +
+                ", password='" + password + '\'' +
+                ", phone=" + phone +
+                '}';
+    }
+
+
 
     public Integer getId() {
         return id;
@@ -17,12 +41,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getPassword() {

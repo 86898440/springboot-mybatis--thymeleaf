@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yungo.dao.CommodityMapper">
+
+    <resultMap id="userMap" type="com.yungo.entity.Commodity">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="number" column="number"></result>
+        <result property="url" column="url"></result>
+        <result property="createTime" column="create_time"></result>
+        <result property="startTime" column="start_time"></result>
+        <result property="endTime" column="end_time"></result>
+        <result property="price" column="price"></result>
+        <result column="detail" property="detail"></result>
+    </resultMap>
+
+    <select id="findAll" resultMap="userMap">
+        SELECT *FROM commodity WHERE state=${1};
+    </select>
+
+    <select id="findById" resultMap="userMap">
+        SELECT *FROM commodity WHERE id=#{id};
+    </select>
+
+</mapper>

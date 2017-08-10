@@ -7,5 +7,11 @@ import com.yungo.entity.User;
  */
 
 public interface UserService {
-    User findByUsername(String username);
+    void createUser(User user);
+
+    User findByPhone(String phone);
+  /*  User findByUsername(String username);
+
+     User findBySessionId(String id);
+*/
 }
